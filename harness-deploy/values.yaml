@@ -1,5 +1,5 @@
-name: payment-service
-replicas: 1
+name: rest-service
+replicas: 2
 
 image: <+artifact.image>
 # dockercfg: <+artifact.imagePullSecret>
@@ -18,7 +18,7 @@ servicePort: 8080
 serviceTargetPort: 8080
 
 #Templatise this using harness variables.
-sename: "bootcamp"
+sename: "poc"
 
 # Specify all environment variables to be added to the container.
 # The following two maps, config and secrets, are put into a ConfigMap
