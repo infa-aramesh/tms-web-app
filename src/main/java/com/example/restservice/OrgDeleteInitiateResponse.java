@@ -13,6 +13,15 @@ public class OrgDeleteInitiateResponse {
 
   String status;
 
+  int testVal;
+
+  public int getTestVal() {
+    return testVal;
+  }
+
+  public void setTestVal(int testVal) {
+    this.testVal = testVal;
+  }
 
   public String getMigrationId() {
     return migrationId;
