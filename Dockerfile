@@ -5,7 +5,7 @@ RUN apt-get update
 RUN apt-get install -y wget
 
  
-COPY ./libs/rest-service-0.0.1-SNAPSHOT.jar rest-service-0.0.1-SNAPSHOT.jar
+COPY ./build/libs/rest-service-0.0.1-SNAPSHOT.jar rest-service-0.0.1-SNAPSHOT.jar
 
 EXPOSE 8080
 
