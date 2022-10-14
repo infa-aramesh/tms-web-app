@@ -1,0 +1,36 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: tms-gateway
+  namespace: harness-poc
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tms-service
+  namespace: harness-poc
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - tms-gateway
+  http:
+  - name: "tms-service"
+    match:
+    - uri:
+        prefix: "/dataDestruction"
+    route:
+    - destination:
+        host: rest-service-poc-svc
+        port:
+          number: 8080
