@@ -9,10 +9,10 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:application.properties")
 public class AppConfig {
 
-    @Value("${t_val:45}")
+    @Value("${t_val}")
     Integer value;
 
-    @Value("${message:Hello}")
+    @Value("${message}")
     String message;
 
     public Integer getValue() {
