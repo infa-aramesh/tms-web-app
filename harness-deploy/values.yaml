@@ -32,6 +32,7 @@ env:
     HARNESS_BUILD: <+pipeline.sequenceId>
     t_val: 98
     message: Finally its here!
+    txt : Test text
   secrets:
     key2: value2
 
