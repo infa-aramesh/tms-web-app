@@ -1,9 +1,6 @@
 package com.example.restservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.lang.management.ManagementFactory;
@@ -15,11 +12,8 @@ public class TMSController {
   final long processing_duration_minutes = 3;
   final long processing_duration_msecs = processing_duration_minutes * 60 * 1000;
 
-  @Value("${test_val:20}")
-  private Integer test_Val;
-
   @Autowired
-  private Environment env;
+  private AppConfig config;
 
 
   @RequestMapping(method = RequestMethod.PUT, value = "/dataDestruction/orgdelete/request/{migrationId}")
@@ -38,7 +32,7 @@ public class TMSController {
     response.setRequestId(request.getRequestId());
     response.setServiceName(request.getServiceName());
     response.setOrgId(request.getOrgId());
-    response.setTestVal(env.getProperty("test_val", Integer.class));
+    response.setTestVal(config.getValue());
     response.setStatus("INITIAL");
 
     System.out.println("Response payload:");
@@ -101,7 +95,7 @@ public class TMSController {
     response.setErrorCode("");
     response.setServiceName("<ServiceName>");
     response.setOrgId("org");
-    response.setTest_Val(env.getProperty("test_val", Integer.class));
+    response.setTest_Val(config.getValue());
 
     RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
     long uptimeInMilliseconds = runtimeMXBean.getStartTime();
