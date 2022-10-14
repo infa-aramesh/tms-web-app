@@ -21,6 +21,8 @@ public class OrgDeleteResultResponse {
 
   String message;
 
+  String txt;
+
 
   public String getResult() {
     return result;
@@ -93,5 +95,13 @@ public class OrgDeleteResultResponse {
 
   public String getMessage() {
     return message;
+  }
+
+  public String getTxt() {
+    return txt;
+  }
+
+  public void setTxt(String txt) {
+    this.txt = txt;
   }
 }

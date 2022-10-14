@@ -1,6 +1,7 @@
 package com.example.restservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.lang.management.ManagementFactory;
@@ -15,6 +16,8 @@ public class TMSController {
   @Autowired
   private AppConfig config;
 
+  @Autowired
+  private Environment environment;
 
   @RequestMapping(method = RequestMethod.PUT, value = "/dataDestruction/orgdelete/request/{migrationId}")
   @ResponseBody
@@ -95,6 +98,7 @@ public class TMSController {
     response.setOrgId("org");
     response.setTest_Val(config.getValue());
     response.setMessage(config.getMessage());
+    response.setTxt(environment.getProperty("txt"));
 
     RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
     long uptimeInMilliseconds = runtimeMXBean.getStartTime();
