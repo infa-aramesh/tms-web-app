@@ -100,7 +100,7 @@ public class TMSController {
     response.setErrorCode("");
     response.setServiceName("<ServiceName>");
     response.setOrgId("org");
-    response.setTest_Val(test_Val);
+    response.setTest_Val(env.getProperty("test_val", Integer.class));
 
     RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
     long uptimeInMilliseconds = runtimeMXBean.getStartTime();
