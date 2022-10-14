@@ -32,7 +32,6 @@ public class TMSController {
     response.setRequestId(request.getRequestId());
     response.setServiceName(request.getServiceName());
     response.setOrgId(request.getOrgId());
-    response.setTestVal(config.getValue());
     response.setStatus("INITIAL");
 
     System.out.println("Response payload:");
@@ -41,7 +40,6 @@ public class TMSController {
     System.out.println("***** Service Name:" + response.getServiceName());
     System.out.println("***** Org Id:" + response.getOrgId());
     System.out.println("***** Status:" + response.getStatus());
-    System.out.println("***** TestVal:" + response.getTestVal());
     System.out.println("****************************************************************************************************");
 
     return response;
@@ -96,6 +94,7 @@ public class TMSController {
     response.setServiceName("<ServiceName>");
     response.setOrgId("org");
     response.setTest_Val(config.getValue());
+    response.setMessage(config.getMessage());
 
     RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
     long uptimeInMilliseconds = runtimeMXBean.getStartTime();
