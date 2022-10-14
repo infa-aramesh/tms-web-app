@@ -17,6 +17,8 @@ public class OrgDeleteResultResponse {
 
   String orgId;
 
+  int test_Val;
+
   public String getResult() {
     return result;
   }
@@ -72,5 +74,13 @@ public class OrgDeleteResultResponse {
 
   public void setOrgId(String orgId) {
     this.orgId = orgId;
+  }
+
+  public int getTest_Val() {
+    return test_Val;
+  }
+
+  public void setTest_Val(int test_Val) {
+    this.test_Val = test_Val;
   }
 }
