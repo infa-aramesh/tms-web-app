@@ -30,6 +30,8 @@ env:
   #  HARNESS_FF_KEY: key
   #  HARNESS_SE: seusername
     HARNESS_BUILD: <+pipeline.sequenceId>
+    t_val: 98
+    message: Finally its here!
   secrets:
     key2: value2
 
