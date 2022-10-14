@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
-    @Value("${test_val}")
+    @Value("${test_val:45}")
     Integer value;
 
     public Integer getValue() {
