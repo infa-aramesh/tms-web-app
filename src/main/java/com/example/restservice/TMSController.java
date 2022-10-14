@@ -14,7 +14,7 @@ public class TMSController {
   final long processing_duration_minutes = 3;
   final long processing_duration_msecs = processing_duration_minutes * 60 * 1000;
 
-  @Value("${test_val}")
+  @Value("${test.val:20}")
   private Integer test_Val;
 
   @Autowired
@@ -37,7 +37,7 @@ public class TMSController {
     response.setRequestId(request.getRequestId());
     response.setServiceName(request.getServiceName());
     response.setOrgId(request.getOrgId());
-    response.setTestVal(env.getProperty("test_val", Integer.class));
+    response.setTestVal(env.getProperty("test.val", Integer.class));
     response.setStatus("INITIAL");
 
     System.out.println("Response payload:");
@@ -100,7 +100,7 @@ public class TMSController {
     response.setErrorCode("");
     response.setServiceName("<ServiceName>");
     response.setOrgId("org");
-    response.setTest_Val(env.getProperty("test_val", Integer.class));
+    response.setTest_Val(env.getProperty("test.val", Integer.class));
 
     RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
     long uptimeInMilliseconds = runtimeMXBean.getStartTime();
